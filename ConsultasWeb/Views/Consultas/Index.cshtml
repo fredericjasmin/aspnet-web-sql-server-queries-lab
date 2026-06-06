@@ -1,0 +1,72 @@
+@{
+    ViewData["Title"] = "Consultas";
+}
+
+<h2>Consultas de Base de Datos</h2>
+
+<p>
+    Esta página permite ejecutar tres consultas sobre la base de datos
+    <strong>WebQueriesDB</strong>.
+</p>
+
+<hr />
+
+<h3>Consulta 1: Buscar clientes por edad</h3>
+
+<p>
+    Ingrese una edad para obtener los clientes que coincidan.
+</p>
+
+<p>
+    Ejemplos: 25, 30, 35
+</p>
+
+<form method="post" asp-action="Consulta1">
+    <label>Edad:</label>
+    <input type="number" name="parametro" required />
+    <button type="submit">Buscar Clientes</button>
+</form>
+
+<hr />
+
+<h3>Consulta 2: Buscar productos por categoría</h3>
+
+<p>
+    Ingrese una categoría para obtener los productos asociados.
+</p>
+
+<p>
+    Ejemplos:
+    <strong>Tecnologia</strong>,
+    <strong>Muebles</strong>
+</p>
+
+<form method="post" asp-action="Consulta2">
+    <label>Categoría:</label>
+    <input type="text" name="parametro" required />
+    <button type="submit">Buscar Productos</button>
+</form>
+
+<hr />
+
+<h3>Consulta 3: Buscar ventas por fecha</h3>
+
+<p>
+    Seleccione una fecha para consultar las ventas registradas.
+</p>
+
+<p>
+    Ejemplo:
+    <strong>2025-02-10</strong>
+</p>
+
+<form method="post" asp-action="Consulta3">
+    <label>Fecha:</label>
+    <input type="date" name="parametro" required />
+    <button type="submit">Buscar Ventas</button>
+</form>
+
+@if (ViewBag.Error != null)
+{
+    <p style="color:red;">@ViewBag.Error</p>
+}
